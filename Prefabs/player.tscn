@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ttmcy586ri0m"]
+[gd_scene load_steps=8 format=3 uid="uid://ttmcy586ri0m"]
 
 [ext_resource type="Script" uid="uid://bylixjrcmw327" path="res://Scripts/Player/PlayerInputs.gd" id="1_5wxv7"]
 [ext_resource type="Script" uid="uid://ckxmkwomethbo" path="res://Scripts/Player/PlayerMovements.gd" id="2_y5hcb"]
+[ext_resource type="Texture2D" uid="uid://2oabpbyu8hr1" path="res://crosshair001.png" id="3_y5hcb"]
+[ext_resource type="PackedScene" uid="uid://dwd8kec118cig" path="res://Prefabs/axe.tscn" id="4_2nftw"]
+[ext_resource type="Script" uid="uid://6kj1cht5qw1a" path="res://Scripts/Player/PlayerInteraction.gd" id="5_knrd4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ye543"]
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("movements", "Camera")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2nftw"]
+size = Vector3(1.5894165, 1.2908936, 1.6049805)
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("movements", "_axe", "_interaction", "Camera")]
 script = ExtResource("1_5wxv7")
 movements = NodePath("RigidBody3D")
+_axe = NodePath("RigidBody3D/Head/Camera3D/Axe pivot/Axe")
+_interaction = NodePath("RigidBody3D/Head/Camera3D/InteractionBox")
 Camera = NodePath("RigidBody3D/Head/Camera3D")
 
 [node name="RigidBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_head", "_camera")]
@@ -27,4 +35,34 @@ shape = SubResource("CapsuleShape3D_ye543")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0275288, 0)
 
 [node name="Camera3D" type="Camera3D" parent="RigidBody3D/Head"]
-transform = Transform3D(-1, 8.742278e-08, 0, 8.593094e-08, 0.98293537, 0.18395124, 1.6081529e-08, 0.18395124, -0.98293537, 0, 0, 0)
+transform = Transform3D(-1, 1.03504306e-07, -8.593094e-08, 8.593094e-08, 0.98293537, 0.18395124, 1.03504306e-07, 0.18395124, -0.98293537, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="RigidBody3D/Head/Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y5hcb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Axe pivot" type="Node3D" parent="RigidBody3D/Head/Camera3D"]
+transform = Transform3D(0.29479516, -0.585312, 0.755318, 0.9545419, 0.21686655, -0.2044961, -0.044109195, 0.7812674, 0.6226357, 0.58093786, -0.82425666, -0.47859403)
+
+[node name="Axe" parent="RigidBody3D/Head/Camera3D/Axe pivot" instance=ExtResource("4_2nftw")]
+transform = Transform3D(0.73032045, 0.6644164, -0.15869233, 0.6633662, -0.7452563, -0.06736889, -0.16302747, -0.056070212, -0.9850272, 0.13245249, -0.35266244, -0.030756414)
+
+[node name="InteractionBox" type="Area3D" parent="RigidBody3D/Head/Camera3D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("5_knrd4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Head/Camera3D/InteractionBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09927367, -0.57809436, -1.47002)
+shape = SubResource("BoxShape3D_2nftw")

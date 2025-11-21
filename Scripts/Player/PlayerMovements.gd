@@ -14,13 +14,24 @@ var speed
 var _bobFrequency = 1.3
 var _bobAmplitude = .06
 var _tBob = 0
+
+var cameraYrotation
+
+func _ready() :
+	cameraYrotation = _camera.rotation.y
+
 func _process(delta) :
 	_head.rotate_y(-mouseMouvement.x * _sensitivity)
 	_camera.rotate_x(mouseMouvement.y * _sensitivity)
 	_camera.rotation.x = clamp(_camera.rotation.x, deg_to_rad(-40),deg_to_rad(60))
+	_camera.rotation.y = cameraYrotation
+	
+	_head.rotation.x = clamp(_head.rotation.x, deg_to_rad(-40),deg_to_rad(60))
+	_head.rotation.z = 0
 	mouseMouvement = Vector2.ZERO
 
 func _physics_process(delta):
+	
 	if is_on_floor() :	
 		_tBob += delta * velocity.length()
 		_camera.transform.origin = HeadBobbin(_tBob)

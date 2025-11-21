@@ -1,6 +1,8 @@
 class_name Player extends Node
 
 @export var movements : PlayerMovements
+@export var _axe : Axe
+@export var _interaction : PlayerInteraction
 @export_group("Camera")
 @export_range(0,1) var mouse_sensitivity = .25
 @export var Camera : Node3D
@@ -9,11 +11,10 @@ var inputVector:Vector3 = Vector3.ZERO
 
 func _ready():
 	pass # Replace with function body.
-
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-
 	cameraInputDirection = Vector2.ZERO
 	CalculateInputVector()
 	movements.inputs = inputVector
@@ -34,16 +35,12 @@ func CalculateInputVector() :
 
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion  :
-		cameraInputDirection = event.screen_relative
-		movements.mouseMouvement = cameraInputDirection
-	else : 
-		movements.mouseMouvement = Vector2.ZERO
-	Inputkeys.Jump.Reset()
+	MouseRegistering(event)
 	KeyRegistering(event)
 
 
 func KeyRegistering(event : InputEvent) :
+	Inputkeys.Jump.Reset()
 	if event.is_action_pressed("MoveForward") :
 		Inputkeys.Forward.isPressed = true
 	if event.is_action_pressed("MoveBackward") :
@@ -79,5 +76,33 @@ func KeyRegistering(event : InputEvent) :
 		Inputkeys.Sprint.isPressed = false
 		Inputkeys.Sprint.hasBeenReleased = true
 		
+	if event.is_action_pressed("Echap_menu") :
+		MouseModeSwap()
+		Inputkeys.Echap_menu.isPressed = true
+	if event.is_action_released("Echap_menu") :
+		Inputkeys.Echap_menu.isPressed = false
+		Inputkeys.Echap_menu.hasBeenReleased = true
 		
+	if event.is_action_pressed("Interacte") :
+		_interaction.Interact()
+		Inputkeys.Interacte.isPressed = true
+	if event.is_action_released("Interacte") :
+		Inputkeys.Interacte.isPressed = false
+		Inputkeys.Interacte.hasBeenReleased = true
 		
+func MouseRegistering(event : InputEvent) :
+	if event is InputEventMouseMotion  and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		cameraInputDirection = event.screen_relative
+		movements.mouseMouvement = cameraInputDirection
+	else : 
+		movements.mouseMouvement = Vector2.ZERO
+	
+	if event.is_action_pressed("AxeSwing") :
+		Inputkeys.AxeSwing.isPressed = true
+		_axe.Swing()
+	
+func MouseModeSwap() :
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE :
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else :
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
