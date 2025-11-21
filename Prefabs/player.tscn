@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ttmcy586ri0m"]
+
+[ext_resource type="Script" uid="uid://bylixjrcmw327" path="res://Scripts/Player/PlayerInputs.gd" id="1_5wxv7"]
+[ext_resource type="Script" uid="uid://ckxmkwomethbo" path="res://Scripts/Player/PlayerMovements.gd" id="2_y5hcb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ye543"]
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("movements", "Camera")]
+script = ExtResource("1_5wxv7")
+movements = NodePath("RigidBody3D")
+Camera = NodePath("RigidBody3D/Head/Camera3D")
+
+[node name="RigidBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_head", "_camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0539583, 0.6255584)
+script = ExtResource("2_y5hcb")
+_head = NodePath("Head")
+_camera = NodePath("Head/Camera3D")
+_sensitivity = 0.01
+_walkSpeed = 4.0
+_sprintSpeed = 12.0
+_jumpForce = 6.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_ye543")
+
+[node name="Head" type="Node3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0275288, 0)
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D/Head"]
+transform = Transform3D(-1, 8.742278e-08, 0, 8.593094e-08, 0.98293537, 0.18395124, 1.6081529e-08, 0.18395124, -0.98293537, 0, 0, 0)
