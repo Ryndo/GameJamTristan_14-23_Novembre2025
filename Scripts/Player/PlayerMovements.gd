@@ -11,6 +11,7 @@ class_name PlayerMovements extends CharacterBody3D
 var inputs : Vector3
 var mouseMouvement : Vector2 = Vector2.ZERO
 var speed
+var _isSprinting
 var _bobFrequency = 1.3
 var _bobAmplitude = .06
 var _tBob = 0
@@ -39,13 +40,16 @@ func _physics_process(delta):
 		velocity.y += get_gravity().y * delta
 		
 	CalculateMovement(delta)
+	
 	move_and_slide()
 
 
 func CalculateMovement(delta) :
 	if Inputkeys.Sprint.isPressed :
+		_isSprinting = true
 		speed = _sprintSpeed
 	else :
+		_isSprinting = false
 		speed = _walkSpeed 
 	
 	var direction = (_head.transform.basis * Vector3(inputs.x,0,inputs.z)).normalized()
@@ -53,6 +57,8 @@ func CalculateMovement(delta) :
 		if direction :
 			velocity.x =  speed * direction.x
 			velocity.z =  speed * direction.z
+			if _isSprinting :
+				ConsumeSprintStamina()
 		else : 
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7)
@@ -68,6 +74,8 @@ func CalculateMovement(delta) :
 		Inputkeys.Jump.hasBeenReleased = false
 		velocity.y *= 0.5
 		
+func ConsumeSprintStamina() :
+	PlayerStats.DecreaseStamina(PlayerStats.StaminaSprintCost * get_process_delta_time())
 
 			
 func HeadBobbin(time) :

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://tr6vn4x6vdjp"]
+
+[ext_resource type="Script" uid="uid://trneai8166vm" path="res://Scripts/UI/UI_PlayerInformations.gd" id="1_f0fc3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inventory" type="Control" parent="." node_paths=PackedStringArray("_logStock", "_stamina")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 566.0
+offset_right = 41.0
+offset_bottom = 606.0
+grow_vertical = 0
+script = ExtResource("1_f0fc3")
+_logStock = NodePath("Log stock")
+_stamina = NodePath("../Control/Stamina")
+
+[node name="Log stock" type="ProgressBar" parent="Inventory"]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 27.0
+value = 17.83
+show_percentage = false
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 170.0
+offset_bottom = 31.0
+
+[node name="Stamina" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 571.0
+offset_right = 169.0
+offset_bottom = 598.0
+value = 17.83
+show_percentage = false

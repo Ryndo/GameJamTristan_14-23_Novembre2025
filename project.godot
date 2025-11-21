@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Inputkeys="*res://Scripts/Systems/Inputkeys.gd"
 ObjectSpawner="*res://Scripts/Systems/ObjectSpawner.gd"
+PlayerInventory="*res://Scripts/Player/PlayerInventory.gd"
+PlayerStats="*res://Scripts/Player/PlayerStats.gd"
 
 [dotnet]
 
