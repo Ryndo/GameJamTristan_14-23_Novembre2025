@@ -15,17 +15,17 @@ var _bobFrequency = 1.3
 var _bobAmplitude = .06
 var _tBob = 0
 
-var cameraYrotation
+var cameraRotation
 
 func _ready() :
-	cameraYrotation = _camera.rotation.y
+	cameraRotation = _camera.rotation
 
 func _process(delta) :
 	_head.rotate_y(-mouseMouvement.x * _sensitivity)
 	_camera.rotate_x(mouseMouvement.y * _sensitivity)
 	_camera.rotation.x = clamp(_camera.rotation.x, deg_to_rad(-40),deg_to_rad(60))
-	_camera.rotation.y = cameraYrotation
-	
+	_camera.rotation.y = cameraRotation.y
+	_camera.rotation.z = cameraRotation.z
 	_head.rotation.x = clamp(_head.rotation.x, deg_to_rad(-40),deg_to_rad(60))
 	_head.rotation.z = 0
 	mouseMouvement = Vector2.ZERO

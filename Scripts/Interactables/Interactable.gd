@@ -1,4 +1,4 @@
-class_name Interactable extends Node
+class_name Interactable extends Hoverable
 
 func Interact() :
 	print("interact")

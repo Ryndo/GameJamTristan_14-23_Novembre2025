@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw8baeemp3a0x"]
+[gd_scene load_steps=14 format=3 uid="uid://cw8baeemp3a0x"]
 
 [ext_resource type="PackedScene" uid="uid://c3jkyq17r56fh" path="res://Sources/3D/Rock_Wall.fbx" id="1_xdn3j"]
 [ext_resource type="PackedScene" uid="uid://bt30ekqrc6vt1" path="res://Sources/3D/Pickup.fbx" id="2_f2j00"]
@@ -28,6 +28,9 @@ albedo_color = Color(0.7293468, 0.5201096, 0.38577533, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f2j00"]
 size = Vector3(1.9956055, 1, 1.9812012)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_2x4h8"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -36,6 +39,17 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rxmfh")
+
+[node name="Sol" type="MeshInstance3D" parent="."]
+transform = Transform3D(103.38517, 0, 0, 0, 1.0036075, 0, 0, 0, 106.70916, -0.11240482, 0.014387131, -65.92317)
+mesh = SubResource("PlaneMesh_631qx")
+surface_material_override/0 = SubResource("StandardMaterial3D_lm1wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9999989, 0, 0, 0, 1, 0.003, -0.486, 0.004)
+shape = SubResource("BoxShape3D_f2j00")
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(59.743294, 0, 0, 0, 1, 0, 0, 0, 106.32559, 0, 0, -65.92637)
@@ -215,21 +229,17 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15.0799055, 0, -4.2491
 visible = false
 
 [node name="Tree17" parent="Trees" instance=ExtResource("5_2x4h8")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.42019844, 0, 4.409127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42019844, 0, 4.409127)
 
-[node name="Sol" type="MeshInstance3D" parent="."]
-transform = Transform3D(103.38517, 0, 0, 0, 1.0036075, 0, 0, 0, 106.70916, -0.11240482, 0.014387131, -65.92317)
-mesh = SubResource("PlaneMesh_631qx")
-surface_material_override/0 = SubResource("StandardMaterial3D_lm1wu")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Sol"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.9999989, 0, 0, 0, 1, 0.0031738388, 0, 0.0037841797)
-shape = SubResource("BoxShape3D_f2j00")
+[node name="Sprite3D" parent="Trees/Tree17" index="2"]
+texture = SubResource("ViewportTexture_2x4h8")
 
 [node name="Player" parent="." instance=ExtResource("5_f2j00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.538179, 0.5602672, 9.057806)
 
+[node name="Head" parent="Player/RigidBody3D" index="1"]
+transform = Transform3D(-0.9982129, 0, 0.05975941, 0, 1, 0, -0.05975941, 0, -0.9982129, 0, 1.0275286, 0)
+
+[editable path="Trees/Tree17"]
 [editable path="Player"]
 [editable path="Player/RigidBody3D/Head/Camera3D/Axe pivot/Axe"]
