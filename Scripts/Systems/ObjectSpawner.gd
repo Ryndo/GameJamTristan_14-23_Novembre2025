@@ -1,9 +1,9 @@
 extends Node
 
-var LogObject = preload("res://Prefabs/log.tscn")
 
-func spawnLog(position : Vector3) :
-	var log_instance = LogObject.instantiate()
+func spawnLog(position : Vector3, name) :
+	var woodData = Wood_Data.GetWoodData(name)
+	var log_instance = woodData.LogModel.instantiate()
 	add_child(log_instance)
 	var x = randf_range(0, TAU)
 	var y = randf_range(0, TAU)

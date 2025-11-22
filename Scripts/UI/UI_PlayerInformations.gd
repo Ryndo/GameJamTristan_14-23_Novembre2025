@@ -4,7 +4,7 @@ extends Node
 @export var _stamina : ProgressBar
 
 func _ready() :
-	_logStock.max_value = PlayerInventory.LogCapacity
+	_logStock.max_value = PlayerInventory.LogMaxCapacity
 	_stamina.max_value = PlayerStats.MaxStamina
 	
 func _process(delta):
@@ -12,7 +12,7 @@ func _process(delta):
 	UpdateStats()
 
 func UpdateInventory() :
-	_logStock.value = PlayerInventory.Logs
+	_logStock.value = PlayerInventory.LogCurrentCapacity
 	
 func UpdateStats() :
 	_stamina.value = PlayerStats.CurrentStamina

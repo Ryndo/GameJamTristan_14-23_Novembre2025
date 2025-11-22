@@ -1,6 +1,7 @@
 class_name Log extends Interactable
 
 @export var _text : Sprite3D
+@export var _woodType : String
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_text.hide()
@@ -18,5 +19,5 @@ func UnHoverAction():
 	_text.hide()
 
 func Interact():
-	PlayerInventory.Logs += 1
+	PlayerInventory.AddLog(_woodType,1)
 	get_parent().queue_free()

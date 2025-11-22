@@ -1,7 +1,9 @@
-extends Hoverable
+class_name TreeBase extends Hoverable
 
 @export var _healthBarUI : ProgressBar
 @export var _log_spawn_position : Node3D
+@export var _woodType : String
+
 var _health = 10
 func _ready() :
 	_healthBarUI.value = _health
@@ -24,7 +26,7 @@ func KillTree() :
 	get_parent().queue_free()
 
 func DropLogs():
-	ObjectSpawner.spawnLog(_log_spawn_position.position)
-	ObjectSpawner.spawnLog(_log_spawn_position.position)
-	ObjectSpawner.spawnLog(_log_spawn_position.position)
+	ObjectSpawner.spawnLog(_log_spawn_position.position,_woodType)
+	ObjectSpawner.spawnLog(_log_spawn_position.position,_woodType)
+	ObjectSpawner.spawnLog(_log_spawn_position.position,_woodType)
 	pass

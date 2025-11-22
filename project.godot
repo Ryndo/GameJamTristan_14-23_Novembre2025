@@ -21,6 +21,8 @@ Inputkeys="*res://Scripts/Systems/Inputkeys.gd"
 ObjectSpawner="*res://Scripts/Systems/ObjectSpawner.gd"
 PlayerInventory="*res://Scripts/Player/PlayerInventory.gd"
 PlayerStats="*res://Scripts/Player/PlayerStats.gd"
+Wood_Data="*res://Prefabs/wood_datas.tscn"
+CustomSignals="*res://Scripts/Systems/CustomSignals.gd"
 
 [dotnet]
 

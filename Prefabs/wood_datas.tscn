@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct811m5bqjdc2"]
+
+[ext_resource type="Script" uid="uid://i8yrtn5enptk" path="res://Scripts/Datas/WoodDatas.gd" id="1_7f7go"]
+[ext_resource type="Script" uid="uid://b0vpoy8brdaxs" path="res://Scripts/Datas/WoodType.gd" id="2_8ri1u"]
+[ext_resource type="PackedScene" uid="uid://votpc4dhwjjs" path="res://Prefabs/tree.tscn" id="3_y4r0u"]
+[ext_resource type="PackedScene" uid="uid://cnwyvr1wwwunn" path="res://Prefabs/log.tscn" id="4_c551t"]
+
+[node name="LogDatas" type="Node" node_paths=PackedStringArray("LogsType")]
+script = ExtResource("1_7f7go")
+LogsType = [NodePath("Oak")]
+metadata/_custom_type_script = "uid://i8yrtn5enptk"
+
+[node name="Oak" type="Node" parent="."]
+script = ExtResource("2_8ri1u")
+Name = "Oak"
+TreeModel = ExtResource("3_y4r0u")
+LogModel = ExtResource("4_c551t")
+Price = 1
+TreeHealth = 30

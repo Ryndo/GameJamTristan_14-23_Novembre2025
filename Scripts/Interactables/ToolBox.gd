@@ -1,4 +1,5 @@
 extends Interactable
 
 func Interact():
-	print("toolbox") 
+	CustomSignals.OpenPickUpMenu.emit()
+	
