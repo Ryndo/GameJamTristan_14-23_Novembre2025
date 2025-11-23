@@ -1,0 +1,565 @@
+[gd_scene load_steps=15 format=3 uid="uid://bw8khvinte8f"]
+
+[ext_resource type="Script" uid="uid://cyhe8qb2uvxxg" path="res://Scripts/UI/Upgrade/UpgradeMenu.gd" id="1_7o4f8"]
+[ext_resource type="Texture2D" uid="uid://ycgogvrrdm8c" path="res://icon.svg" id="2_olg7o"]
+[ext_resource type="Script" uid="uid://pot05ai6me6x" path="res://Scripts/UI/Upgrade/StaminaRefill.gd" id="3_olg7o"]
+[ext_resource type="Script" uid="uid://dmvupop1e3osx" path="res://Scripts/UI/Upgrade/UpgradeUISlot.gd" id="4_alg1j"]
+[ext_resource type="Script" uid="uid://r52s7dc1vjff" path="res://Scripts/UI/Upgrade/Axe upgrades/AxeUpgradeTier1.gd" id="5_le7kf"]
+[ext_resource type="Script" uid="uid://mnrejc0pi2o5" path="res://Scripts/UI/Upgrade/Axe upgrades/AxeUpgradeTier2.gd" id="6_qof1i"]
+[ext_resource type="Script" uid="uid://dom7ux5kae4bh" path="res://Scripts/UI/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier1.gd" id="7_jnvdu"]
+[ext_resource type="Script" uid="uid://bwid0bqpdykk8" path="res://Scripts/UI/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier2.gd" id="8_jdbct"]
+[ext_resource type="Script" uid="uid://haouti3j8u74" path="res://Scripts/UI/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier1.gd" id="9_80kvd"]
+[ext_resource type="Script" uid="uid://6d1lcuit5o45" path="res://Scripts/UI/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier2.gd" id="10_08jcr"]
+[ext_resource type="Script" uid="uid://cwtnt4kc0lixp" path="res://Scripts/UI/Upgrade/Inventory upgrades/InventoryUpgradeTier1.gd" id="11_o1d6l"]
+[ext_resource type="Script" uid="uid://dxs46eyd0asyt" path="res://Scripts/UI/Upgrade/Inventory upgrades/InventoryUpgradeTier2.gd" id="12_rghc7"]
+[ext_resource type="Script" uid="uid://b8fmqoivnm800" path="res://Scripts/UI/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier1.gd" id="13_iphui"]
+[ext_resource type="Script" uid="uid://cnmde4b8ntu0o" path="res://Scripts/UI/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier2.gd" id="14_mxx1c"]
+
+[node name="Upgrade menu" type="Control" node_paths=PackedStringArray("_playerMoney", "AxeUISlot", "AxeUpgrades", "MaxStaminaUISlot", "MaxStaminaUpgrades", "StaminaEfficiencyUISlot", "StaminaEfficiencyUpgrades", "InventoryUISlot", "InventoryUpgrades", "RunningSpeedUISlot", "RunningSpeedUpgrades")]
+layout_mode = 3
+anchor_right = 0.523
+anchor_bottom = 1.0
+offset_right = 0.5040283
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_7o4f8")
+_playerMoney = NodePath("Money")
+AxeUISlot = NodePath("VBoxContainer/Axe upgrade Slot")
+AxeUpgrades = [NodePath("Upgrades/Axe upgrades/T1"), NodePath("Upgrades/Axe upgrades/T2")]
+MaxStaminaUISlot = NodePath("VBoxContainer/Max stamina upgrade Slot")
+MaxStaminaUpgrades = [NodePath("Upgrades/Max stamina upgrades/T1"), NodePath("Upgrades/Max stamina upgrades/T2")]
+StaminaEfficiencyUISlot = NodePath("VBoxContainer/Stamina efficiency upgrade Slot")
+StaminaEfficiencyUpgrades = [NodePath("Upgrades/Stamina efficiency upgrades/T1"), NodePath("Upgrades/Stamina efficiency upgrades/T2")]
+InventoryUISlot = NodePath("VBoxContainer/Inventory upgrade Slot")
+InventoryUpgrades = [NodePath("Upgrades/Inventory upgrades/T1"), NodePath("Upgrades/Inventory upgrades/T2")]
+RunningSpeedUISlot = NodePath("VBoxContainer/Running speed upgrade Slot")
+RunningSpeedUpgrades = [NodePath("Upgrades/Running speed  upgrades/T1"), NodePath("Upgrades/Running speed  upgrades/T2")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4204372, 0.799108, 0.93435204, 0.16078432)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_right = 37.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Upgrades"
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 74.0
+offset_bottom = 42.0
+
+[node name="Close Menu" type="Button" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1625208
+anchor_top = 0.027777778
+anchor_right = 1.1625208
+anchor_bottom = 0.027777778
+offset_left = -136.0
+offset_bottom = 136.0
+grow_horizontal = 0
+scale = Vector2(0.22, 0.22)
+icon = ExtResource("2_olg7o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Stamina refill" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 620.0
+offset_top = 23.0
+offset_right = 1126.0
+offset_bottom = 129.26501
+script = ExtResource("3_olg7o")
+
+[node name="Label" type="Label" parent="Stamina refill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stamina refill"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Stamina refill"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.264
+anchor_right = 0.731
+anchor_bottom = 0.56600004
+offset_left = -0.13800049
+offset_top = 0.016000748
+offset_right = 0.1210022
+offset_bottom = 0.003993988
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 64.0
+offset_right = 555.0
+offset_bottom = 412.0
+
+[node name="Axe upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
+custom_minimum_size = Vector2(0, 106.265)
+layout_mode = 2
+script = ExtResource("4_alg1j")
+Name = NodePath("Upgrade name")
+NameDescription = NodePath("Name description")
+Effect = NodePath("effect")
+Cost = NodePath("Cost")
+buyButton = NodePath("Buy button")
+Upgrades = [null]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14997578, 0.15784422, 0.15408254, 0.34901962)
+
+[node name="Upgrade name" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Axe upgrade"
+horizontal_alignment = 1
+
+[node name="Name description" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -17.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aedzgzrhedhbedherg"
+
+[node name="Cost" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "999"
+
+[node name="effect" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 63.0
+offset_right = 297.0
+offset_bottom = 93.0
+text = "FASTER FASTER"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 169.0
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_olg7o")
+
+[node name="Buy button" type="Button" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 86.0
+
+[node name="Max stamina upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
+custom_minimum_size = Vector2(0, 106.265)
+layout_mode = 2
+script = ExtResource("4_alg1j")
+Name = NodePath("Upgrade name")
+NameDescription = NodePath("Name description")
+Effect = NodePath("effect")
+Cost = NodePath("Cost")
+buyButton = NodePath("Buy button")
+Upgrades = [null]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14997578, 0.15784422, 0.15408254, 0.34901962)
+
+[node name="Upgrade name" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Axe upgrade"
+horizontal_alignment = 1
+
+[node name="Name description" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -17.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aedzgzrhedhbedherg"
+
+[node name="Cost" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "999"
+
+[node name="effect" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 63.0
+offset_right = 297.0
+offset_bottom = 93.0
+text = "FASTER FASTER"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 169.0
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_olg7o")
+
+[node name="Buy button" type="Button" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 86.0
+
+[node name="Stamina efficiency upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
+custom_minimum_size = Vector2(0, 106.265)
+layout_mode = 2
+script = ExtResource("4_alg1j")
+Name = NodePath("Upgrade name")
+NameDescription = NodePath("Name description")
+Effect = NodePath("effect")
+Cost = NodePath("Cost")
+buyButton = NodePath("Buy button")
+Upgrades = [null]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14997578, 0.15784422, 0.15408254, 0.34901962)
+
+[node name="Upgrade name" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Axe upgrade"
+horizontal_alignment = 1
+
+[node name="Name description" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -17.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aedzgzrhedhbedherg"
+
+[node name="Cost" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "999"
+
+[node name="effect" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 63.0
+offset_right = 297.0
+offset_bottom = 93.0
+text = "FASTER FASTER"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 169.0
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_olg7o")
+
+[node name="Buy button" type="Button" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 86.0
+
+[node name="Inventory upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
+custom_minimum_size = Vector2(0, 106.265)
+layout_mode = 2
+script = ExtResource("4_alg1j")
+Name = NodePath("Upgrade name")
+NameDescription = NodePath("Name description")
+Effect = NodePath("effect")
+Cost = NodePath("Cost")
+buyButton = NodePath("Buy button")
+Upgrades = [null]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14997578, 0.15784422, 0.15408254, 0.34901962)
+
+[node name="Upgrade name" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Axe upgrade"
+horizontal_alignment = 1
+
+[node name="Name description" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -17.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aedzgzrhedhbedherg"
+
+[node name="Cost" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "999"
+
+[node name="effect" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 63.0
+offset_right = 297.0
+offset_bottom = 93.0
+text = "FASTER FASTER"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 169.0
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_olg7o")
+
+[node name="Buy button" type="Button" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 86.0
+
+[node name="Running speed upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
+custom_minimum_size = Vector2(61.95, 106.265)
+layout_mode = 2
+script = ExtResource("4_alg1j")
+Name = NodePath("Upgrade name")
+NameDescription = NodePath("Name description")
+Effect = NodePath("effect")
+Cost = NodePath("Cost")
+buyButton = NodePath("Buy button")
+Upgrades = [null]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Running speed upgrade Slot"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14997578, 0.15784422, 0.15408254, 0.34901962)
+
+[node name="Upgrade name" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Axe upgrade"
+horizontal_alignment = 1
+
+[node name="Name description" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -17.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aedzgzrhedhbedherg"
+
+[node name="Cost" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "999"
+
+[node name="effect" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 63.0
+offset_right = 297.0
+offset_bottom = 93.0
+text = "FASTER FASTER"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 169.0
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_olg7o")
+
+[node name="Buy button" type="Button" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 86.0
+
+[node name="Upgrades" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 590.0
+offset_top = 204.0
+offset_right = 630.0
+offset_bottom = 244.0
+
+[node name="Axe upgrades" type="Node" parent="Upgrades"]
+
+[node name="T1" type="Node" parent="Upgrades/Axe upgrades"]
+script = ExtResource("5_le7kf")
+Name = "AXE T1"
+NameDescription = "faster"
+Effect = "zerfpngk"
+Cost = 10
+
+[node name="T2" type="Node" parent="Upgrades/Axe upgrades"]
+script = ExtResource("6_qof1i")
+Name = "AXE T1"
+NameDescription = "faster"
+Effect = "zerfpngk"
+Cost = 10
+
+[node name="Max stamina upgrades" type="Node" parent="Upgrades"]
+
+[node name="T1" type="Node" parent="Upgrades/Max stamina upgrades"]
+script = ExtResource("7_jnvdu")
+
+[node name="T2" type="Node" parent="Upgrades/Max stamina upgrades"]
+script = ExtResource("8_jdbct")
+
+[node name="Stamina efficiency upgrades" type="Node" parent="Upgrades"]
+
+[node name="T1" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
+script = ExtResource("9_80kvd")
+
+[node name="T2" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
+script = ExtResource("10_08jcr")
+
+[node name="T3" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
+
+[node name="Inventory upgrades" type="Node" parent="Upgrades"]
+
+[node name="T1" type="Node" parent="Upgrades/Inventory upgrades"]
+script = ExtResource("11_o1d6l")
+
+[node name="T2" type="Node" parent="Upgrades/Inventory upgrades"]
+script = ExtResource("12_rghc7")
+
+[node name="T3" type="Node" parent="Upgrades/Inventory upgrades"]
+
+[node name="Running speed  upgrades" type="Node" parent="Upgrades"]
+
+[node name="T1" type="Node" parent="Upgrades/Running speed  upgrades"]
+script = ExtResource("13_iphui")
+
+[node name="T2" type="Node" parent="Upgrades/Running speed  upgrades"]
+script = ExtResource("14_mxx1c")
+
+[connection signal="button_down" from="Close Menu" to="." method="CloseMenu"]
+[connection signal="button_down" from="Stamina refill/Button" to="Stamina refill" method="BuyRefill"]
+[connection signal="button_down" from="VBoxContainer/Axe upgrade Slot/Buy button" to="." method="BuyAxeUpgrade"]
+[connection signal="button_down" from="VBoxContainer/Max stamina upgrade Slot/Buy button" to="." method="BuyMaxStaminaUpgrade"]
+[connection signal="button_down" from="VBoxContainer/Stamina efficiency upgrade Slot/Buy button" to="." method="BuyStaminaEfficiencyUpgrade"]
+[connection signal="button_down" from="VBoxContainer/Inventory upgrade Slot/Buy button" to="." method="BuyInventoryUpgrade"]
+[connection signal="button_down" from="VBoxContainer/Running speed upgrade Slot/Buy button" to="." method="BuyRunningSpeedUpgrade"]

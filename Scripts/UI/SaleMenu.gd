@@ -10,7 +10,7 @@ extends Control
 @export var _saleTotal : Label
 
 func _ready() :
-	CustomSignals.OpenPickUpMenu.connect(OpenMenu)
+	CustomSignals.OpenSaleMenu.connect(OpenMenu)
 	
 func OpenMenu() :
 	HideColumns()

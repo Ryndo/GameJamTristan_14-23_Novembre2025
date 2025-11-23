@@ -23,6 +23,7 @@ PlayerInventory="*res://Scripts/Player/PlayerInventory.gd"
 PlayerStats="*res://Scripts/Player/PlayerStats.gd"
 Wood_Data="*res://Prefabs/wood_datas.tscn"
 CustomSignals="*res://Scripts/Systems/CustomSignals.gd"
+ShopData="*res://Scripts/Datas/ShopData.gd"
 
 [dotnet]
 

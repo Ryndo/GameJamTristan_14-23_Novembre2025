@@ -1,5 +1,11 @@
 extends Interactable
 
+@export var _interactText : Label
 func Interact():
-	CustomSignals.OpenPickUpMenu.emit()
+	CustomSignals.OpenUpgradeMenu.emit()
 	
+func HoverAction():
+	_interactText.show()
+
+func UnHoverAction():
+	_interactText.hide()

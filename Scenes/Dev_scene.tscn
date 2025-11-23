@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw8baeemp3a0x"]
+[gd_scene load_steps=17 format=3 uid="uid://cw8baeemp3a0x"]
 
 [ext_resource type="PackedScene" uid="uid://c3jkyq17r56fh" path="res://Sources/3D/Rock_Wall.fbx" id="1_xdn3j"]
-[ext_resource type="PackedScene" uid="uid://bt30ekqrc6vt1" path="res://Sources/3D/Pickup.fbx" id="2_f2j00"]
+[ext_resource type="PackedScene" uid="uid://cne5xo31ehk7i" path="res://Prefabs/pickup.tscn" id="2_vsiqi"]
 [ext_resource type="PackedScene" uid="uid://bpnqhr7cred7l" path="res://Prefabs/tool_box.tscn" id="3_2x4h8"]
 [ext_resource type="PackedScene" uid="uid://byxwrc2jwnmqo" path="res://Sources/3D/Tree.fbx" id="4_rxmfh"]
 [ext_resource type="PackedScene" uid="uid://votpc4dhwjjs" path="res://Prefabs/tree.tscn" id="5_2x4h8"]
 [ext_resource type="PackedScene" uid="uid://ttmcy586ri0m" path="res://Prefabs/player.tscn" id="5_f2j00"]
 [ext_resource type="PackedScene" uid="uid://tr6vn4x6vdjp" path="res://Prefabs/UI.tscn" id="7_rxmfh"]
 [ext_resource type="PackedScene" uid="uid://b2hda80n5ru86" path="res://Prefabs/Sale_menu.tscn" id="8_8svsx"]
+[ext_resource type="PackedScene" uid="uid://bw8khvinte8f" path="res://Prefabs/upgrade_menu.tscn" id="9_vsiqi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f2j00"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -158,7 +159,7 @@ transform = Transform3D(-0.014376284, 0, 0.022552827, 0, 2, 0, -0.024021024, 0, 
 
 [node name="Pickup_Tool_Box" type="Node3D" parent="."]
 
-[node name="Pickup" parent="Pickup_Tool_Box" instance=ExtResource("2_f2j00")]
+[node name="Pickup" parent="Pickup_Tool_Box" instance=ExtResource("2_vsiqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2840836, 0, 15.814472)
 
 [node name="Tool_Box" parent="Pickup_Tool_Box" instance=ExtResource("3_2x4h8")]
@@ -244,7 +245,10 @@ transform = Transform3D(-0.9982129, 0, 0.05975941, 0, 1, 0, -0.05975941, 0, -0.9
 
 [node name="UI" parent="." instance=ExtResource("7_rxmfh")]
 
-[node name="ToolBox menu" parent="." instance=ExtResource("8_8svsx")]
+[node name="Sale menu" parent="." instance=ExtResource("8_8svsx")]
+
+[node name="Upgrade menu" parent="." instance=ExtResource("9_vsiqi")]
+visible = false
 
 [editable path="Trees/Tree17"]
 [editable path="Player"]

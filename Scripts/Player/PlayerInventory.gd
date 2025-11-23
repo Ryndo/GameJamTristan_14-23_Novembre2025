@@ -21,3 +21,6 @@ func ClearLogInventory() :
 
 func AddMoney(amount : int) :
 	Money += amount
+
+func SubstractMoney(amount : int) :
+	Money -= amount

@@ -47,10 +47,10 @@ func _physics_process(delta):
 func CalculateMovement(delta) :
 	if Inputkeys.Sprint.isPressed :
 		_isSprinting = true
-		speed = _sprintSpeed
+		speed = PlayerStats.RunningSpeed
 	else :
 		_isSprinting = false
-		speed = _walkSpeed 
+		speed = PlayerStats.WalkingSpeed 
 	
 	var direction = (_head.transform.basis * Vector3(inputs.x,0,inputs.z)).normalized()
 	if is_on_floor() :
