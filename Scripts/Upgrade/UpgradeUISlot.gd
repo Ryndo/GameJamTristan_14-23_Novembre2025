@@ -15,6 +15,5 @@ func DisplayUpgradeCurrentTier(upgradeData : Upgrade) :
 	Cost.text = str(upgradeData.Cost)
 	upgrade = upgradeData
 	
-func SoldOut(maxTierUpgrade) :
-	DisplayUpgradeCurrentTier(maxTierUpgrade)
+func SoldOut() :
 	buyButton.hide()
