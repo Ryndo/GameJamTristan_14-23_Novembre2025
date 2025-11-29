@@ -17,6 +17,8 @@ func ActivateHitbox() :
 func DeactivateHitbox() :
 	_hitbox.monitoring = false
 
-
 func consumeSwingStamina() :
 	PlayerStats.CurrentStamina -= _staminaSwingCost
+
+func _on_hit_box_body_entered(body):
+	body.Hitted(AxeData.damage)

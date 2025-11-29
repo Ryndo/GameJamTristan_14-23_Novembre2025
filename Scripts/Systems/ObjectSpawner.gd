@@ -10,4 +10,4 @@ func spawnLog(position : Vector3, name) :
 	var z = randf_range(0, TAU)
 	var rotation = Vector3(x, y, z)
 	log_instance.rotation = rotation
-	log_instance.position = position
+	log_instance.global_position = position

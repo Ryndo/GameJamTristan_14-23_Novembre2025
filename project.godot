@@ -24,6 +24,7 @@ PlayerStats="*res://Scripts/Player/PlayerStats.gd"
 Wood_Data="*res://Prefabs/wood_datas.tscn"
 CustomSignals="*res://Scripts/Systems/CustomSignals.gd"
 ShopData="*res://Scripts/Datas/ShopData.gd"
+AxeData="*res://Scripts/Datas/AxeData.gd"
 
 [dotnet]
 
@@ -83,6 +84,7 @@ Interacte={
 
 [layer_names]
 
+3d_physics/layer_1="Collision"
 3d_physics/layer_2="Layer 2"
 3d_physics/layer_3="Axeable"
 3d_physics/layer_4="Interaction"

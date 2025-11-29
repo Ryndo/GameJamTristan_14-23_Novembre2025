@@ -1,7 +1,6 @@
-class_name Hoverable extends CollisionObject3D
+class_name Hoverable extends Node3D
 
 func HoverAction() :
-	
 	pass
 	
 func UnHoverAction() :

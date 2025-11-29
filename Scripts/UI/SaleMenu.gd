@@ -11,6 +11,7 @@ extends Control
 
 func _ready() :
 	CustomSignals.OpenSaleMenu.connect(OpenMenu)
+	hide()
 	
 func OpenMenu() :
 	HideColumns()

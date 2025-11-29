@@ -512,16 +512,16 @@ Upgrades = [NodePath("T1"), NodePath("T2")]
 [node name="T1" type="Node" parent="Upgrades/Axe upgrades"]
 script = ExtResource("5_le7kf")
 Name = "AXE T1"
-NameDescription = "faster"
-Effect = "zerfpngk"
+NameDescription = "more damage"
+Effect = "+ 10 damage"
 Cost = 10
 Tier = 1
 
 [node name="T2" type="Node" parent="Upgrades/Axe upgrades"]
 script = ExtResource("6_qof1i")
 Name = "AXE T2"
-NameDescription = "fastest"
-Effect = "zerfpngk"
+NameDescription = "MORE damage"
+Effect = "+ 20 damage"
 Cost = 10
 Tier = 2
 

@@ -70,3 +70,5 @@ shape = SubResource("BoxShape3D_2nftw")
 [connection signal="area_entered" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="_on_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="Hover"]
 [connection signal="body_exited" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="UnHover"]
+
+[editable path="RigidBody3D/Head/Camera3D/Axe pivot/Axe"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cw8baeemp3a0x"]
+[gd_scene load_steps=15 format=3 uid="uid://cw8baeemp3a0x"]
 
 [ext_resource type="PackedScene" uid="uid://c3jkyq17r56fh" path="res://Sources/3D/Rock_Wall.fbx" id="1_xdn3j"]
 [ext_resource type="PackedScene" uid="uid://cne5xo31ehk7i" path="res://Prefabs/pickup.tscn" id="2_vsiqi"]
 [ext_resource type="PackedScene" uid="uid://bpnqhr7cred7l" path="res://Prefabs/tool_box.tscn" id="3_2x4h8"]
-[ext_resource type="PackedScene" uid="uid://byxwrc2jwnmqo" path="res://Sources/3D/Tree.fbx" id="4_rxmfh"]
 [ext_resource type="PackedScene" uid="uid://votpc4dhwjjs" path="res://Prefabs/tree.tscn" id="5_2x4h8"]
 [ext_resource type="PackedScene" uid="uid://ttmcy586ri0m" path="res://Prefabs/player.tscn" id="5_f2j00"]
 [ext_resource type="PackedScene" uid="uid://tr6vn4x6vdjp" path="res://Prefabs/UI.tscn" id="7_rxmfh"]
@@ -31,9 +30,6 @@ albedo_color = Color(0.7293468, 0.5201096, 0.38577533, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f2j00"]
 size = Vector3(1.9956055, 1, 1.9812012)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2x4h8"]
-viewport_path = NodePath("SubViewport")
-
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -47,6 +43,7 @@ environment = SubResource("Environment_rxmfh")
 transform = Transform3D(103.38517, 0, 0, 0, 1.0036075, 0, 0, 0, 106.70916, -0.11240482, 0.014387131, -65.92317)
 mesh = SubResource("PlaneMesh_631qx")
 surface_material_override/0 = SubResource("StandardMaterial3D_lm1wu")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sol"]
 
@@ -56,6 +53,7 @@ shape = SubResource("BoxShape3D_f2j00")
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(59.743294, 0, 0, 0, 1, 0, 0, 0, 106.32559, 0, 0, -65.92637)
+visible = false
 
 [node name="Left_Wall" type="Node3D" parent="Walls"]
 
@@ -163,79 +161,15 @@ transform = Transform3D(-0.014376284, 0, 0.022552827, 0, 2, 0, -0.024021024, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2840836, 0, 15.814472)
 
 [node name="Tool_Box" parent="Pickup_Tool_Box" instance=ExtResource("3_2x4h8")]
-transform = Transform3D(0.18562448, 0, 0.07445504, 0, 0.2, 0, -0.07445504, 0, 0.18562448, -2.7716289, -1.9073486e-06, 12.938049)
+transform = Transform3D(0.15388437, 0, 0.12774819, 0, 0.19999999, 0, -0.12774819, 0, 0.15388437, -4.390215, -1.9073486e-06, 12.271103)
 
 [node name="Trees" type="Node3D" parent="."]
 
-[node name="Tree" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.6418123, 0, 2.859849)
-visible = false
+[node name="Tree1" parent="Trees" instance=ExtResource("5_2x4h8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.697981, 0, 4.409127)
 
-[node name="Tree2" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3577175, 0, 4.4113665)
-visible = false
-
-[node name="Tree3" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.3778667, 0, 3.3150682)
-visible = false
-
-[node name="Tree4" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.075262, 0, 3.2552462)
-visible = false
-
-[node name="Tree5" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.904764, 0, -0.5073705)
-visible = false
-
-[node name="Tree6" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.8576612, 0, -0.88833094)
-visible = false
-
-[node name="Tree7" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.3837662, 0, -1.8003407)
-visible = false
-
-[node name="Tree8" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.61579823, 0, 0.038146973)
-visible = false
-
-[node name="Tree9" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.181406, 0, -0.9512067)
-visible = false
-
-[node name="Tree10" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.604903, 0, -1.8562589)
-visible = false
-
-[node name="Tree11" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.6775723, 0, -4.5253606)
-visible = false
-
-[node name="Tree12" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.6408467, 0, -5.0903306)
-visible = false
-
-[node name="Tree13" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5461364, 0, -5.0179744)
-visible = false
-
-[node name="Tree14" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.402456, 0, -5.136871)
-visible = false
-
-[node name="Tree15" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.952075, 0, -4.464021)
-visible = false
-
-[node name="Tree16" parent="Trees" instance=ExtResource("4_rxmfh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15.0799055, 0, -4.249122)
-visible = false
-
-[node name="Tree17" parent="Trees" instance=ExtResource("5_2x4h8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42019844, 0, 4.409127)
-
-[node name="Sprite3D" parent="Trees/Tree17" index="2"]
-texture = SubResource("ViewportTexture_2x4h8")
+[node name="Tree2" parent="Trees" instance=ExtResource("5_2x4h8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.431174, 0, -0.3800001)
 
 [node name="Player" parent="." instance=ExtResource("5_f2j00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.538179, 0.5602672, 9.057806)
@@ -250,6 +184,5 @@ transform = Transform3D(-0.9982129, 0, 0.05975941, 0, 1, 0, -0.05975941, 0, -0.9
 [node name="Upgrade menu" parent="." instance=ExtResource("9_vsiqi")]
 visible = false
 
-[editable path="Trees/Tree17"]
 [editable path="Player"]
 [editable path="Player/RigidBody3D/Head/Camera3D/Axe pivot/Axe"]
