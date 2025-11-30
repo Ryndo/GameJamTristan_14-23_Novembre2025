@@ -8,12 +8,15 @@ var Money = 990
 
 
 func AddLog(wood : String, amount : int) :
+	if LogCurrentCapacity >= LogMaxCapacity :
+		return false
 	LogCurrentCapacity += amount
 	for log in Logs :
 		if log.LogName == wood :
 			log.Amount += amount
-			return
+			return true
 	Logs.append(InventoryElement.new(wood,amount))
+	return true
 
 func ClearLogInventory() :
 	Logs.clear()

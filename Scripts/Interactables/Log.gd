@@ -15,5 +15,5 @@ func _process(delta):
 
 
 func PickUp() :
-	PlayerInventory.AddLog(_woodType,1)
-	get_parent().queue_free()
+	if (PlayerInventory.AddLog(_woodType,1)) :
+		get_parent().queue_free()
