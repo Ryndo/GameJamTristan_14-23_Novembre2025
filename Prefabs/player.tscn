@@ -24,8 +24,6 @@ script = ExtResource("2_y5hcb")
 _head = NodePath("Head")
 _camera = NodePath("Head/Camera3D")
 _sensitivity = 0.01
-_walkSpeed = 4.0
-_sprintSpeed = 12.0
 _jumpForce = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
@@ -53,7 +51,7 @@ texture = ExtResource("3_y5hcb")
 metadata/_edit_use_anchors_ = true
 
 [node name="Axe pivot" type="Node3D" parent="RigidBody3D/Head/Camera3D"]
-transform = Transform3D(0.29479516, -0.585312, 0.755318, 0.9545419, 0.21686655, -0.2044961, -0.044109195, 0.7812674, 0.6226357, 0.58093786, -0.82425666, -0.47859403)
+transform = Transform3D(0.29479516, -0.58531195, 0.755318, 0.9545419, 0.21686654, -0.2044961, -0.044109195, 0.78126734, 0.6226357, 0.58093786, -0.82425666, -0.47859403)
 
 [node name="Axe" parent="RigidBody3D/Head/Camera3D/Axe pivot" instance=ExtResource("4_2nftw")]
 transform = Transform3D(0.73032045, 0.6644164, -0.15869233, 0.6633662, -0.7452563, -0.06736889, -0.16302747, -0.056070212, -0.9850272, 0.13245249, -0.35266244, -0.030756414)

@@ -13,6 +13,8 @@ func _process(delta):
 
 func UpdateInventory() :
 	_logStock.value = PlayerInventory.LogCurrentCapacity
+	_logStock.max_value = PlayerInventory.LogMaxCapacity
 	
 func UpdateStats() :
 	_stamina.value = PlayerStats.CurrentStamina
+	_stamina.max_value = PlayerStats.MaxStamina

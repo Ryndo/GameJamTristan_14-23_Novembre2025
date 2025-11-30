@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bw8khvinte8f"]
+[gd_scene load_steps=26 format=3 uid="uid://bw8khvinte8f"]
 
 [ext_resource type="Script" uid="uid://cyhe8qb2uvxxg" path="res://Scripts/Upgrade/UpgradeMenu.gd" id="1_7o4f8"]
 [ext_resource type="Texture2D" uid="uid://ycgogvrrdm8c" path="res://icon.svg" id="2_olg7o"]
@@ -8,13 +8,23 @@
 [ext_resource type="Script" uid="uid://r52s7dc1vjff" path="res://Scripts/Upgrade/Axe upgrades/AxeUpgradeTier1.gd" id="5_le7kf"]
 [ext_resource type="Script" uid="uid://mnrejc0pi2o5" path="res://Scripts/Upgrade/Axe upgrades/AxeUpgradeTier2.gd" id="6_qof1i"]
 [ext_resource type="Script" uid="uid://dom7ux5kae4bh" path="res://Scripts/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier1.gd" id="7_jnvdu"]
+[ext_resource type="Script" uid="uid://d3xpk5wre5gqg" path="res://Scripts/Upgrade/Axe upgrades/AxeUpgradeTier3.gd" id="8_08jcr"]
 [ext_resource type="Script" uid="uid://bwid0bqpdykk8" path="res://Scripts/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier2.gd" id="8_jdbct"]
 [ext_resource type="Script" uid="uid://haouti3j8u74" path="res://Scripts/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier1.gd" id="9_80kvd"]
+[ext_resource type="Script" uid="uid://dihxtphi2xyjr" path="res://Scripts/Upgrade/Axe upgrades/AxeUpgradeTier4.gd" id="9_o1d6l"]
 [ext_resource type="Script" uid="uid://6d1lcuit5o45" path="res://Scripts/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier2.gd" id="10_08jcr"]
 [ext_resource type="Script" uid="uid://cwtnt4kc0lixp" path="res://Scripts/Upgrade/Inventory upgrades/InventoryUpgradeTier1.gd" id="11_o1d6l"]
+[ext_resource type="Script" uid="uid://brkfd01etoxyr" path="res://Scripts/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier3.gd" id="12_iphui"]
 [ext_resource type="Script" uid="uid://dxs46eyd0asyt" path="res://Scripts/Upgrade/Inventory upgrades/InventoryUpgradeTier2.gd" id="12_rghc7"]
 [ext_resource type="Script" uid="uid://b8fmqoivnm800" path="res://Scripts/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier1.gd" id="13_iphui"]
+[ext_resource type="Script" uid="uid://dvbkdlyyaaa38" path="res://Scripts/Upgrade/Max stamina upgrades/MaxStaminaUpgradeTier4.gd" id="13_mxx1c"]
 [ext_resource type="Script" uid="uid://cnmde4b8ntu0o" path="res://Scripts/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier2.gd" id="14_mxx1c"]
+[ext_resource type="Script" uid="uid://cmf5k6j5l0wbf" path="res://Scripts/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier3.gd" id="16_mxx1c"]
+[ext_resource type="Script" uid="uid://bu8p6k04hfx3u" path="res://Scripts/Upgrade/stamina efficiency upgrades/StaminaEfficiencyUpgradeTier4.gd" id="17_5dewt"]
+[ext_resource type="Script" uid="uid://c56esj8egot2g" path="res://Scripts/Upgrade/Inventory upgrades/InventoryUpgradeTier3.gd" id="20_ty74r"]
+[ext_resource type="Script" uid="uid://dke1dv5oiejm0" path="res://Scripts/Upgrade/Inventory upgrades/InventoryUpgradeTier4.gd" id="21_t2b5t"]
+[ext_resource type="Script" uid="uid://b1b221ktdnfy4" path="res://Scripts/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier3.gd" id="22_pug1r"]
+[ext_resource type="Script" uid="uid://ccycuf6gxb3xs" path="res://Scripts/Upgrade/Running speed upgrades/RunningSpeedUpgradeTier4.gd" id="23_xy2mo"]
 
 [node name="Upgrade menu" type="Control" node_paths=PackedStringArray("_playerMoney", "AxeUISlot", "AxeUpgrades", "MaxStaminaUISlot", "MaxStaminaUpgrades", "StaminaEfficiencyUISlot", "StaminaEfficiencyUpgrades", "InventoryUISlot", "InventoryUpgrades", "RunningSpeedUISlot", "RunningSpeedUpgrades")]
 layout_mode = 3
@@ -35,7 +45,7 @@ StaminaEfficiencyUpgrades = NodePath("Upgrades/Stamina efficiency upgrades")
 InventoryUISlot = NodePath("VBoxContainer/Inventory upgrade Slot")
 InventoryUpgrades = NodePath("Upgrades/Inventory upgrades")
 RunningSpeedUISlot = NodePath("VBoxContainer/Running speed upgrade Slot")
-RunningSpeedUpgrades = NodePath("Upgrades/Running speed  upgrades")
+RunningSpeedUpgrades = NodePath("Upgrades/Running speed upgrades")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -507,13 +517,13 @@ offset_bottom = 244.0
 
 [node name="Axe upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
 script = ExtResource("5_jdbct")
-Upgrades = [NodePath("T1"), NodePath("T2")]
+Upgrades = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4")]
 
 [node name="T1" type="Node" parent="Upgrades/Axe upgrades"]
 script = ExtResource("5_le7kf")
 Name = "AXE T1"
 NameDescription = "more damage"
-Effect = "+ 10 damage"
+Effect = "40 damage"
 Cost = 10
 Tier = 1
 
@@ -521,61 +531,169 @@ Tier = 1
 script = ExtResource("6_qof1i")
 Name = "AXE T2"
 NameDescription = "MORE damage"
-Effect = "+ 20 damage"
-Cost = 10
+Effect = "60 damage"
+Cost = 15
 Tier = 2
+
+[node name="T3" type="Node" parent="Upgrades/Axe upgrades"]
+script = ExtResource("8_08jcr")
+Name = "AXE T3"
+NameDescription = "MORE+ damage"
+Effect = "80 damage"
+Cost = 20
+Tier = 3
+
+[node name="T4" type="Node" parent="Upgrades/Axe upgrades"]
+script = ExtResource("9_o1d6l")
+Name = "AXE T4"
+NameDescription = "PERFECT damage"
+Effect = "100 damage"
+Cost = 25
+Tier = 4
 
 [node name="Max stamina upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
 script = ExtResource("5_jdbct")
-Upgrades = [NodePath("T1"), NodePath("T2")]
+Upgrades = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4")]
 
 [node name="T1" type="Node" parent="Upgrades/Max stamina upgrades"]
 script = ExtResource("7_jnvdu")
+Name = "MAX STAMINA T1"
+NameDescription = "Increase stamina"
+Effect = "+25% Stamina"
+Cost = 10
 Tier = 1
 
 [node name="T2" type="Node" parent="Upgrades/Max stamina upgrades"]
 script = ExtResource("8_jdbct")
+Name = "MAX STAMINA T2"
+NameDescription = "Increase stamina"
+Effect = "+25% Stamina"
+Cost = 15
 Tier = 2
+
+[node name="T3" type="Node" parent="Upgrades/Max stamina upgrades"]
+script = ExtResource("12_iphui")
+Name = "MAX STAMINA T3"
+NameDescription = "Increase stamina"
+Effect = "+25% Stamina"
+Cost = 20
+Tier = 3
+
+[node name="T4" type="Node" parent="Upgrades/Max stamina upgrades"]
+script = ExtResource("13_mxx1c")
+Name = "MAX STAMINA T4"
+NameDescription = "Increase stamina"
+Effect = "+25% Stamina"
+Cost = 25
+Tier = 4
 
 [node name="Stamina efficiency upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
 script = ExtResource("5_jdbct")
-Upgrades = [NodePath("T1"), NodePath("T2")]
+Upgrades = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4")]
 
 [node name="T1" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
 script = ExtResource("9_80kvd")
+Name = "STAMINA EFFICIENCY T1"
+NameDescription = "Increase stamina efficiency"
+Effect = "Less Running and Cutting stamina cost"
+Cost = 10
 Tier = 1
 
 [node name="T2" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
 script = ExtResource("10_08jcr")
+Name = "STAMINA EFFICIENCY T2"
+NameDescription = "Increase stamina efficiency"
+Effect = "Less Running and Cutting stamina cost"
+Cost = 15
 Tier = 2
 
 [node name="T3" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
+script = ExtResource("16_mxx1c")
+Name = "STAMINA EFFICIENCY T3"
+NameDescription = "Increase stamina efficiency"
+Effect = "Less Running and Cutting stamina cost"
+Cost = 20
+Tier = 3
+
+[node name="T4" type="Node" parent="Upgrades/Stamina efficiency upgrades"]
+script = ExtResource("17_5dewt")
+Name = "STAMINA EFFICIENCY T4"
+NameDescription = "Increase stamina efficiency"
+Effect = "Less Running and Cutting stamina cost"
+Cost = 25
+Tier = 4
 
 [node name="Inventory upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
 script = ExtResource("5_jdbct")
-Upgrades = [NodePath("T1"), NodePath("T2")]
+Upgrades = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4")]
 
 [node name="T1" type="Node" parent="Upgrades/Inventory upgrades"]
 script = ExtResource("11_o1d6l")
+Name = "INVENTORY SIZE T1"
+NameDescription = "Increase inventory size"
+Effect = "Increase inventory size by 6"
+Cost = 10
 Tier = 1
 
 [node name="T2" type="Node" parent="Upgrades/Inventory upgrades"]
 script = ExtResource("12_rghc7")
+Name = "INVENTORY SIZE T2"
+NameDescription = "Increase inventory size"
+Effect = "Increase inventory size by 6"
+Cost = 15
 Tier = 2
 
 [node name="T3" type="Node" parent="Upgrades/Inventory upgrades"]
+script = ExtResource("20_ty74r")
+Name = "INVENTORY SIZE T3"
+NameDescription = "Increase inventory size"
+Effect = "Increase inventory size by 6"
+Cost = 20
+Tier = 3
 
-[node name="Running speed  upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
+[node name="T4" type="Node" parent="Upgrades/Inventory upgrades"]
+script = ExtResource("21_t2b5t")
+Name = "INVENTORY SIZE T4"
+NameDescription = "Increase inventory size"
+Effect = "Increase inventory size by 6"
+Cost = 25
+Tier = 4
+
+[node name="Running speed upgrades" type="Node" parent="Upgrades" node_paths=PackedStringArray("Upgrades")]
 script = ExtResource("5_jdbct")
-Upgrades = [NodePath("T1"), NodePath("T2")]
+Upgrades = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4")]
 
-[node name="T1" type="Node" parent="Upgrades/Running speed  upgrades"]
+[node name="T1" type="Node" parent="Upgrades/Running speed upgrades"]
 script = ExtResource("13_iphui")
+Name = "RUNNING SPEED T1"
+NameDescription = "Increase running speed"
+Effect = "Run faster"
+Cost = 10
 Tier = 1
 
-[node name="T2" type="Node" parent="Upgrades/Running speed  upgrades"]
+[node name="T2" type="Node" parent="Upgrades/Running speed upgrades"]
 script = ExtResource("14_mxx1c")
+Name = "RUNNING SPEED T2"
+NameDescription = "Increase running speed"
+Effect = "Run faster"
+Cost = 15
 Tier = 2
+
+[node name="T3" type="Node" parent="Upgrades/Running speed upgrades"]
+script = ExtResource("22_pug1r")
+Name = "RUNNING SPEED T3"
+NameDescription = "Increase running speed"
+Effect = "Run faster"
+Cost = 20
+Tier = 3
+
+[node name="T4" type="Node" parent="Upgrades/Running speed upgrades"]
+script = ExtResource("23_xy2mo")
+Name = "RUNNING SPEED T4"
+NameDescription = "Increase running speed"
+Effect = "Run faster"
+Cost = 25
+Tier = 4
 
 [connection signal="button_down" from="Close Menu" to="." method="CloseMenu"]
 [connection signal="button_down" from="Stamina refill/Button" to="Stamina refill" method="BuyRefill"]

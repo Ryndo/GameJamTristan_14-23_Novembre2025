@@ -2,7 +2,7 @@ extends Node
 
 var Logs : Array[InventoryElement]
 var LogCurrentCapacity = 0
-var LogMaxCapacity = 10
+var LogMaxCapacity = 12
 
 var Money = 990
 

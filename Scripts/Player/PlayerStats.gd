@@ -3,7 +3,7 @@ extends Node
 var MaxStamina = 100
 var CurrentStamina
 var StaminaSprintCost = 5 #per second
-var StaminaSwingCost
+var StaminaSwingCost = 10
 
 var WalkingSpeed = 4
 var RunningSpeed = 8

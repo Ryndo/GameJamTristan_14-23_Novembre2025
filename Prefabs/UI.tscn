@@ -26,7 +26,6 @@ _stamina = NodePath("../Control/Stamina")
 layout_mode = 0
 offset_right = 168.0
 offset_bottom = 27.0
-value = 17.83
 show_percentage = false
 
 [node name="Control" type="Control" parent="."]
@@ -40,5 +39,4 @@ offset_left = 1.0
 offset_top = 571.0
 offset_right = 169.0
 offset_bottom = 598.0
-value = 17.83
 show_percentage = false

@@ -1,11 +1,7 @@
 extends Upgrade
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+static func ApplyEffect():
+	PlayerStats.StaminaSwingCost = 9
+	PlayerStats.StaminaSprintCost = 4
+	print("Stamina Efficiency Upgrade T1")
 	pass

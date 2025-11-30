@@ -1,3 +1,3 @@
 extends Node
 
-var damage = 10
+var damage = 20

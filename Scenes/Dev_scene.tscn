@@ -166,10 +166,10 @@ transform = Transform3D(0.15388437, 0, 0.12774819, 0, 0.19999999, 0, -0.12774819
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="Tree1" parent="Trees" instance=ExtResource("5_2x4h8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.697981, 0, 4.409127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2116604, 9.536743e-07, 2.3767786)
 
 [node name="Tree2" parent="Trees" instance=ExtResource("5_2x4h8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.431174, 0, -0.3800001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9445133, 0, 4.101942)
 
 [node name="Player" parent="." instance=ExtResource("5_f2j00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.538179, 0.5602672, 9.057806)

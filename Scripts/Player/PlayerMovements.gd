@@ -3,8 +3,6 @@ class_name PlayerMovements extends CharacterBody3D
 @export var _head : Node3D
 @export var _camera : Node3D
 @export_range(0,1,.01) var _sensitivity = .02
-@export var _walkSpeed : float
-@export var _sprintSpeed : float
 @export var _jumpForce : float
 
 
@@ -45,7 +43,7 @@ func _physics_process(delta):
 
 
 func CalculateMovement(delta) :
-	if Inputkeys.Sprint.isPressed :
+	if Inputkeys.Sprint.isPressed and PlayerStats.CurrentStamina >= PlayerStats.StaminaSprintCost:
 		_isSprinting = true
 		speed = PlayerStats.RunningSpeed
 	else :
