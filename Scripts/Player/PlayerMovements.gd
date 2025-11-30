@@ -43,7 +43,7 @@ func _physics_process(delta):
 
 
 func CalculateMovement(delta) :
-	if Inputkeys.Sprint.isPressed and PlayerStats.CurrentStamina >= PlayerStats.StaminaSprintCost:
+	if Inputkeys.Sprint.isPressed and PlayerStats.CurrentStamina > 0:
 		_isSprinting = true
 		speed = PlayerStats.RunningSpeed
 	else :

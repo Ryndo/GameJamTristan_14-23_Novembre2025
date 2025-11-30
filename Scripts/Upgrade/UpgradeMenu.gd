@@ -19,6 +19,7 @@ extends Control
 
 func _ready() :
 	CustomSignals.OpenUpgradeMenu.connect(OpenMenu)
+	PlayerInventory.MoneyUpdate.connect(RefreshMoneyUI)
 	CloseMenu()
 
 func OpenMenu() :
@@ -73,6 +74,7 @@ func BuyUpgrade(upgradeCategory : UpgradeCategory) :
 	if PlayerInventory.Money >= upgrade.Cost :
 		upgrade.ApplyEffect()
 		upgradeCategory.IncreaseTier()
-		_playerMoney.text = str(int(_playerMoney.text) - int(upgrade.Cost))
+		PlayerInventory.SubstractMoney(upgrade.Cost)
 		
-	
+func RefreshMoneyUI(value) :
+	_playerMoney.text = str(value)

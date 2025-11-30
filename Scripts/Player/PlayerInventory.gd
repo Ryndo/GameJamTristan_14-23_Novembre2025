@@ -5,7 +5,7 @@ var LogCurrentCapacity = 0
 var LogMaxCapacity = 12
 
 var Money = 0
-
+signal MoneyUpdate(value)
 
 func AddLog(wood : String, amount : int) :
 	if LogCurrentCapacity >= LogMaxCapacity :
@@ -24,6 +24,7 @@ func ClearLogInventory() :
 
 func AddMoney(amount : int) :
 	Money += amount
-
+	MoneyUpdate.emit(Money)
 func SubstractMoney(amount : int) :
 	Money -= amount
+	MoneyUpdate.emit(Money)

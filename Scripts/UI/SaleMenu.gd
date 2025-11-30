@@ -38,7 +38,7 @@ func LoadInventory():
 		_amountColumn[i].text = str(PlayerInventory.Logs[i].Amount)
 		_priceColumn[i].text = str(woodData.Price)
 		_totalColumn[i].text = str(woodData.Price * PlayerInventory.Logs[i].Amount)
-		totalAmount += PlayerInventory.Logs[i].Amount * PlayerInventory.Logs[i].Amount
+		totalAmount += woodData.Price * PlayerInventory.Logs[i].Amount
 	_saleTotal.text = str(totalAmount)
 
 func Sell() :
