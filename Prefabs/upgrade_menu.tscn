@@ -54,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4204372, 0.799108, 0.93435204, 0.16078432)
+color = Color(0.41960785, 0.8, 0.93333334, 0.53333336)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -69,10 +69,18 @@ text = "Upgrades"
 
 [node name="Money" type="Label" parent="."]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 34.0
 offset_top = 14.0
-offset_right = 74.0
+offset_right = 92.0
 offset_bottom = 42.0
+
+[node name="Dollar" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 77.0
+offset_bottom = 42.0
+text = "$"
 
 [node name="Close Menu" type="Button" parent="."]
 clip_contents = true
@@ -86,8 +94,15 @@ offset_left = -136.0
 offset_bottom = 136.0
 grow_horizontal = 0
 scale = Vector2(0.22, 0.22)
-icon = ExtResource("2_olg7o")
 metadata/_edit_use_anchors_ = true
+
+[node name="X" type="Label" parent="Close Menu"]
+layout_mode = 0
+offset_right = 22.605042
+offset_bottom = 23.0
+scale = Vector2(6.2335196, 6.2335196)
+text = "X"
+horizontal_alignment = 1
 
 [node name="Stamina refill" type="Control" parent="."]
 anchors_preset = 0
@@ -119,6 +134,7 @@ offset_left = -0.13800049
 offset_top = 0.016000748
 offset_right = 0.1210022
 offset_bottom = 0.003993988
+text = "Free"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -179,6 +195,13 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "999"
 
+[node name="Dollar" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
+layout_mode = 0
+offset_left = 454.0
+offset_right = 512.0
+offset_bottom = 28.0
+text = "$"
+
 [node name="effect" type="Label" parent="VBoxContainer/Axe upgrade Slot"]
 layout_mode = 0
 offset_left = 49.0
@@ -198,10 +221,11 @@ texture = ExtResource("2_olg7o")
 
 [node name="Buy button" type="Button" parent="VBoxContainer/Axe upgrade Slot"]
 layout_mode = 0
-offset_left = 223.0
+offset_left = 428.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 493.0
 offset_bottom = 86.0
+text = "Buy"
 
 [node name="Max stamina upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
 custom_minimum_size = Vector2(0, 106.265)
@@ -255,6 +279,14 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "999"
 
+[node name="Dollar" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
+layout_mode = 0
+offset_left = 454.0
+offset_top = -1.0
+offset_right = 512.0
+offset_bottom = 27.0
+text = "$"
+
 [node name="effect" type="Label" parent="VBoxContainer/Max stamina upgrade Slot"]
 layout_mode = 0
 offset_left = 49.0
@@ -274,10 +306,11 @@ texture = ExtResource("2_olg7o")
 
 [node name="Buy button" type="Button" parent="VBoxContainer/Max stamina upgrade Slot"]
 layout_mode = 0
-offset_left = 223.0
+offset_left = 428.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 493.0
 offset_bottom = 86.0
+text = "Buy"
 
 [node name="Stamina efficiency upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
 custom_minimum_size = Vector2(0, 106.265)
@@ -331,6 +364,13 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "999"
 
+[node name="Dollar" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
+layout_mode = 0
+offset_left = 454.0
+offset_right = 512.0
+offset_bottom = 28.0
+text = "$"
+
 [node name="effect" type="Label" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
 layout_mode = 0
 offset_left = 49.0
@@ -350,10 +390,11 @@ texture = ExtResource("2_olg7o")
 
 [node name="Buy button" type="Button" parent="VBoxContainer/Stamina efficiency upgrade Slot"]
 layout_mode = 0
-offset_left = 223.0
+offset_left = 428.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 493.0
 offset_bottom = 86.0
+text = "Buy"
 
 [node name="Inventory upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
 custom_minimum_size = Vector2(0, 106.265)
@@ -407,6 +448,13 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "999"
 
+[node name="Dollar" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
+layout_mode = 0
+offset_left = 454.0
+offset_right = 512.0
+offset_bottom = 28.0
+text = "$"
+
 [node name="effect" type="Label" parent="VBoxContainer/Inventory upgrade Slot"]
 layout_mode = 0
 offset_left = 49.0
@@ -426,10 +474,11 @@ texture = ExtResource("2_olg7o")
 
 [node name="Buy button" type="Button" parent="VBoxContainer/Inventory upgrade Slot"]
 layout_mode = 0
-offset_left = 223.0
+offset_left = 428.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 493.0
 offset_bottom = 86.0
+text = "Buy"
 
 [node name="Running speed upgrade Slot" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("Name", "NameDescription", "Effect", "Cost", "buyButton", "Upgrades")]
 custom_minimum_size = Vector2(61.95, 106.265)
@@ -484,6 +533,13 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "999"
 
+[node name="Dollar" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
+layout_mode = 0
+offset_left = 454.0
+offset_right = 512.0
+offset_bottom = 28.0
+text = "$"
+
 [node name="effect" type="Label" parent="VBoxContainer/Running speed upgrade Slot"]
 layout_mode = 0
 offset_left = 49.0
@@ -503,10 +559,11 @@ texture = ExtResource("2_olg7o")
 
 [node name="Buy button" type="Button" parent="VBoxContainer/Running speed upgrade Slot"]
 layout_mode = 0
-offset_left = 223.0
+offset_left = 428.0
 offset_top = 64.0
-offset_right = 288.0
+offset_right = 493.0
 offset_bottom = 86.0
+text = "Buy"
 
 [node name="Upgrades" type="Control" parent="."]
 anchors_preset = 0

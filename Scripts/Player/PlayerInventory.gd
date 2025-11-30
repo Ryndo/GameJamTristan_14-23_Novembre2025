@@ -4,7 +4,7 @@ var Logs : Array[InventoryElement]
 var LogCurrentCapacity = 0
 var LogMaxCapacity = 12
 
-var Money = 990
+var Money = 0
 
 
 func AddLog(wood : String, amount : int) :
