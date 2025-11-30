@@ -73,6 +73,6 @@ func BuyUpgrade(upgradeCategory : UpgradeCategory) :
 	if PlayerInventory.Money >= upgrade.Cost :
 		upgrade.ApplyEffect()
 		upgradeCategory.IncreaseTier()
-		_playerMoney.text = str(PlayerInventory.Money)
+		_playerMoney.text = str(int(_playerMoney.text) - int(upgrade.Cost))
 		
 	
