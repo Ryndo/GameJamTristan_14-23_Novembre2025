@@ -81,3 +81,7 @@ func HeadBobbin(time) :
 	pos.y = sin(time * _bobFrequency) * _bobAmplitude
 	pos.x = sin(time * _bobFrequency / 2) * _bobAmplitude
 	return pos
+
+
+func CollectAreaEntered(body):
+	body.PickUp()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ttmcy586ri0m"]
+[gd_scene load_steps=9 format=3 uid="uid://ttmcy586ri0m"]
 
 [ext_resource type="Script" uid="uid://bylixjrcmw327" path="res://Scripts/Player/PlayerInputs.gd" id="1_5wxv7"]
 [ext_resource type="Script" uid="uid://ckxmkwomethbo" path="res://Scripts/Player/PlayerMovements.gd" id="2_y5hcb"]
@@ -10,6 +10,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2nftw"]
 size = Vector3(1.5894165, 1.2908936, 1.6049805)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_knrd4"]
+radius = 0.8
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("movements", "_axe", "_interaction", "Camera")]
 script = ExtResource("1_5wxv7")
@@ -65,8 +68,16 @@ script = ExtResource("5_knrd4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09927367, -0.57809436, -1.47002)
 shape = SubResource("BoxShape3D_2nftw")
 
+[node name="Area3D" type="Area3D" parent="RigidBody3D"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D"]
+shape = SubResource("CapsuleShape3D_knrd4")
+
 [connection signal="area_entered" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="_on_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="Hover"]
 [connection signal="body_exited" from="RigidBody3D/Head/Camera3D/InteractionBox" to="RigidBody3D/Head/Camera3D/InteractionBox" method="UnHover"]
+[connection signal="body_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="CollectAreaEntered"]
 
 [editable path="RigidBody3D/Head/Camera3D/Axe pivot/Axe"]

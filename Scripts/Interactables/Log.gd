@@ -12,12 +12,8 @@ func _process(delta):
 	_text.global_position = global_position
 	_text.global_position.y += 1.5
 
-func HoverAction():
-	_text.show()
 
-func UnHoverAction():
-	_text.hide()
 
-func Interact():
+func PickUp() :
 	PlayerInventory.AddLog(_woodType,1)
 	get_parent().queue_free()
