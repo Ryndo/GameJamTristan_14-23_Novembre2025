@@ -6,7 +6,7 @@ func _ready():
 	_interactText.hide()
 
 func Interact():
-	CustomSignals.OpenSaleMenu.emit()
+	CustomSignals.OpenCloseSaleMenu.emit()
 
 func HoverAction():
 	_interactText.show()

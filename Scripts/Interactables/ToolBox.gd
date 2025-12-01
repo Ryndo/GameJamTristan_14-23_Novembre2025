@@ -6,7 +6,7 @@ func _ready():
 	_interactText.hide()
 
 func Interact():
-	CustomSignals.OpenUpgradeMenu.emit()
+	CustomSignals.OpenCloseUpgradeMenu.emit()
 	
 func HoverAction():
 	_interactText.show()

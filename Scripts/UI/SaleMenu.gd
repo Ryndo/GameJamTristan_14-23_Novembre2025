@@ -1,4 +1,4 @@
-extends Control
+extends UI_Menu
 
 @export var _nameColumn : Array[Label]
 @export var _amountColumn : Array[Label]
@@ -10,19 +10,15 @@ extends Control
 @export var _saleTotal : Label
 
 func _ready() :
-	CustomSignals.OpenSaleMenu.connect(OpenMenu)
-	hide()
+	CustomSignals.OpenCloseSaleMenu.connect(OpenCloseMenu)
+	super()
 	
 func OpenMenu() :
 	HideColumns()
 	LoadInventory()
 	_playerMoney.text = str(PlayerInventory.Money)
-	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	super()
 	
-func CloseMenu() :
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	hide()
 	
 func LoadInventory():
 	var totalAmount = 0

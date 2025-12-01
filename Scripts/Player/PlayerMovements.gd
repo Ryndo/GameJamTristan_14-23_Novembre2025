@@ -20,8 +20,8 @@ func _ready() :
 	cameraRotation = _camera.rotation
 
 func _process(delta) :
-	_head.rotate_y(-mouseMouvement.x * _sensitivity)
-	_camera.rotate_x(mouseMouvement.y * _sensitivity)
+	_head.rotate_y(-mouseMouvement.x * _sensitivity  * GameData.MouseSensitivity)
+	_camera.rotate_x(mouseMouvement.y * _sensitivity * GameData.MouseSensitivity)
 	_camera.rotation.x = clamp(_camera.rotation.x, deg_to_rad(-40),deg_to_rad(60))
 	_camera.rotation.y = cameraRotation.y
 	_camera.rotation.z = cameraRotation.z

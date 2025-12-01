@@ -7,6 +7,8 @@ func _ready():
 	DeactivateHitbox()
 
 func Swing() :
+	if _animationPlayer.is_playing() :
+		return
 	if PlayerStats.CurrentStamina >= PlayerStats.StaminaSwingCost :
 		_animationPlayer.play("Swing")
 	else:

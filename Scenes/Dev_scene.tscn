@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw8baeemp3a0x"]
+[gd_scene load_steps=16 format=3 uid="uid://cw8baeemp3a0x"]
 
-[ext_resource type="PackedScene" uid="uid://bo0sx0fvhhbp7" path="res://Prefabs/rock_wall.tscn" id="1_8svsx"]
+[ext_resource type="PackedScene" path="res://Prefabs/rock_wall.tscn" id="1_8svsx"]
 [ext_resource type="PackedScene" uid="uid://cne5xo31ehk7i" path="res://Prefabs/pickup.tscn" id="2_vsiqi"]
 [ext_resource type="PackedScene" uid="uid://bpnqhr7cred7l" path="res://Prefabs/tool_box.tscn" id="3_2x4h8"]
 [ext_resource type="PackedScene" uid="uid://votpc4dhwjjs" path="res://Prefabs/tree.tscn" id="5_2x4h8"]
 [ext_resource type="PackedScene" uid="uid://ttmcy586ri0m" path="res://Prefabs/player.tscn" id="5_f2j00"]
 [ext_resource type="PackedScene" uid="uid://tr6vn4x6vdjp" path="res://Prefabs/UI.tscn" id="7_rxmfh"]
 [ext_resource type="PackedScene" uid="uid://b2hda80n5ru86" path="res://Prefabs/Sale_menu.tscn" id="8_8svsx"]
+[ext_resource type="PackedScene" uid="uid://bmrd4g5oac62h" path="res://Prefabs/options_menu.tscn" id="9_5avl5"]
 [ext_resource type="PackedScene" uid="uid://bw8khvinte8f" path="res://Prefabs/upgrade_menu.tscn" id="9_vsiqi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f2j00"]
@@ -983,7 +984,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.538179, 0.5602672, 9.05780
 transform = Transform3D(-0.9982129, 0, 0.05975941, 0, 1, 0, -0.05975941, 0, -0.9982129, 0, 1.0275286, 0)
 
 [node name="Axe pivot" parent="Player/RigidBody3D/Head/Camera3D" index="1"]
-transform = Transform3D(0.29479516, -0.58531195, 0.755318, 0.9545419, 0.21686652, -0.2044961, -0.044109195, 0.7812673, 0.6226357, 0.58093786, -0.82425666, -0.47859403)
+transform = Transform3D(0.29479516, -0.5853119, 0.755318, 0.9545419, 0.21686651, -0.2044961, -0.044109195, 0.7812673, 0.6226357, 0.58093786, -0.82425666, -0.47859403)
 
 [node name="UI" parent="." instance=ExtResource("7_rxmfh")]
 
@@ -991,6 +992,8 @@ transform = Transform3D(0.29479516, -0.58531195, 0.755318, 0.9545419, 0.21686652
 
 [node name="Upgrade menu" parent="." instance=ExtResource("9_vsiqi")]
 visible = false
+
+[node name="Options menu" parent="." instance=ExtResource("9_5avl5")]
 
 [editable path="Player"]
 [editable path="Player/RigidBody3D/Head/Camera3D/Axe pivot/Axe"]

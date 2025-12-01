@@ -1,4 +1,4 @@
-extends Control
+extends UI_Menu
 
 @export var _playerMoney : Label
 
@@ -18,20 +18,14 @@ extends Control
 @export var RunningSpeedUpgrades : UpgradeCategory
 
 func _ready() :
-	CustomSignals.OpenUpgradeMenu.connect(OpenMenu)
+	CustomSignals.OpenCloseUpgradeMenu.connect(OpenCloseMenu)
 	PlayerInventory.MoneyUpdate.connect(RefreshMoneyUI)
-	CloseMenu()
+	super()
 
 func OpenMenu() :
 	_playerMoney.text = str(PlayerInventory.Money)
 	FillUISlots()
-	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
-func CloseMenu() :
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	hide()
-
+	super()
 
 func FillUISlots() :
 	RefreshUpgradeSlot(AxeUISlot,AxeUpgrades)

@@ -25,6 +25,8 @@ Wood_Data="*res://Prefabs/wood_datas.tscn"
 CustomSignals="*res://Scripts/Systems/CustomSignals.gd"
 ShopData="*res://Scripts/Datas/ShopData.gd"
 AxeData="*res://Scripts/Datas/AxeData.gd"
+GameData="*res://Scripts/Datas/GameData.gd"
+UIMenuManager="*res://Scripts/UI/UIMenuManager.gd"
 
 [dotnet]
 

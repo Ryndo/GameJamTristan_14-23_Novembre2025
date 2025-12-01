@@ -1,5 +1,7 @@
 extends Node
 
-signal OpenSaleMenu()
+signal OpenCloseSaleMenu()
 
-signal OpenUpgradeMenu()
+signal OpenCloseUpgradeMenu()
+
+signal OpenOptionMenu()

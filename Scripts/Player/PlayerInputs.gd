@@ -79,6 +79,7 @@ func KeyRegistering(event : InputEvent) :
 	if event.is_action_pressed("Echap_menu") :
 		MouseModeSwap()
 		Inputkeys.Echap_menu.isPressed = true
+		UIMenuManager.OpenCloseMenus()
 	if event.is_action_released("Echap_menu") :
 		Inputkeys.Echap_menu.isPressed = false
 		Inputkeys.Echap_menu.hasBeenReleased = true
