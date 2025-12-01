@@ -6,7 +6,9 @@ class_name Axe extends Node3D
 var TreesHittedOnSwing : Array[TreeBase]
 func _ready():
 	DeactivateHitbox()
-
+func _process(delta):
+	if Inputkeys.AxeSwing.isPressed == true :
+		Swing()
 func Swing() :
 	if _animationPlayer.is_playing() :
 		return

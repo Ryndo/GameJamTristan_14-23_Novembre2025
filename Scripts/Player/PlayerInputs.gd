@@ -100,7 +100,8 @@ func MouseRegistering(event : InputEvent) :
 	
 	if event.is_action_pressed("AxeSwing") :
 		Inputkeys.AxeSwing.isPressed = true
-		_axe.Swing()
+	if event.is_action_released("AxeSwing") :
+		Inputkeys.AxeSwing.isPressed = false
 	
 func MouseModeSwap() :
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE :
