@@ -3,6 +3,7 @@ class_name Axe extends Node3D
 @export var _animationPlayer : AnimationPlayer
 @export var _hitbox : Area3D
 
+var TreesHittedOnSwing : Array[TreeBase]
 func _ready():
 	DeactivateHitbox()
 
@@ -19,9 +20,13 @@ func ActivateHitbox() :
 
 func DeactivateHitbox() :
 	_hitbox.monitoring = false
+	TreesHittedOnSwing.clear()
 
 func consumeSwingStamina() :
 	PlayerStats.CurrentStamina -= PlayerStats.StaminaSwingCost
 
 func _on_hit_box_body_entered(body):
+	if TreesHittedOnSwing.has(body) :
+		return
+	TreesHittedOnSwing.push_back(body)
 	body.Hitted(AxeData.damage)
